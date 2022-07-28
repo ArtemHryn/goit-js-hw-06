@@ -5,10 +5,14 @@ input.addEventListener("blur", onCheckNumberOfDigits);
 function onCheckNumberOfDigits(event) {
   const inputElements = event.currentTarget;
   if (Number(inputElements.dataset.length) === inputElements.value.length) {
-    input.classList.remove("invalid");
-    input.classList.add("valid");
+    editClassList('valid', 'invalid')
     return;
   }
-  input.classList.remove("valid");
-  input.classList.add("invalid");
+  editClassList("invalid", "valid");
+}
+
+
+function editClassList(toAdd, toRemove) {
+  input.classList.remove(toRemove)
+  input.classList.add(toAdd);
 }
